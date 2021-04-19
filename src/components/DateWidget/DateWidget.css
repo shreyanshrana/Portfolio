@@ -1,0 +1,16 @@
+.calendarWidget {
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #aea79f;
+  padding: 5px;
+}
+.react-calendar__tile {
+  border-radius: 50%;
+}
+.react-calendar__tile--active {
+  background-color: #e95420 !important;
+}
+
+.react-calendar__tile--now {
+  /* background-color: white !important; */
+}
