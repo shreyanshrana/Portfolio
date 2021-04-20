@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DateWidget } from './DateWidget/DateWidget';
-import { PowerWidget } from './PowerWidget/PowerWidget';
+import { DateWidget } from '../DateWidget/DateWidget';
+import { PowerWidget } from '../PowerWidget/PowerWidget';
 
 export const Panel = () => {
     var d = new Date();
@@ -12,8 +12,8 @@ export const Panel = () => {
     const [powerStyle, setPowerStyle] = useState({cursor:'pointer' })
 
     return (
-        <div>
-            <div className='bg-black text-white '>
+        <div className="absolute z-20 h-7" style={{ width:'100vw' }}>
+            <div className='bg-black text-white'>
                 <div className="w-1/4 inline-block px-2">
                     Activities  
                 </div>
