@@ -12,7 +12,7 @@ export const Panel = () => {
     const [powerStyle, setPowerStyle] = useState({cursor:'pointer' })
 
     return (
-        <div className="absolute z-20 h-7" style={{ width:'100vw' }}>
+        <div className="absolute z-10 h-7" style={{ width:'100vw' }}>
             <div className='bg-black text-white'>
                 <div className="w-1/4 inline-block px-2">
                     Activities  
