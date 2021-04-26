@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Draggable from 'react-draggable';
-import {TopBar} from "../TopBar/TopBar";
+import {TopBar} from "../../components/TopBar/TopBar";
 //add bookmarks bar
 export const Browser = (props) => {
     const [url, setURL] = useState("https://www.google.com/webhp?igu=1");
@@ -23,10 +23,10 @@ export const Browser = (props) => {
             handle=".handle"
             grid={[1,1]}
             bounds="parent">
-                <div id="Container"
+                <div id="browserContainer"
                         style={browserStyle[0]} 
                         className="absolute bg-red-50 inline-block">
-                    <TopBar title="Firefox" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle} setIframeHeight = {setIframeHeight}/>
+                    <TopBar title="Firefox" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle} setIframeHeight = {setIframeHeight} frameTitle="browser"/>
                     <div>
                         <div className="w-full bg-gray-700 h-10">
                             <div className="w-2/12 inline-block text-center text-xl space-x-3 text-white h-10 p-2 float-left">

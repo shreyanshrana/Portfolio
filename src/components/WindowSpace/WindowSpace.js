@@ -1,6 +1,8 @@
 import React, {  } from 'react'
-import { Browser } from '../Browser/Browser';
-import { FileExplorer } from '../FIleExplorer/FileExplorer';
+import {  PdfViewer } from '../../apps/PdfViewer/PdfViewer';
+import { FileExplorer } from '../../apps/FileExplorer/FileExplorer';
+import { ImgViewer } from '../../apps/ImgViewer/ImgViewer';
+import { SpotifyViewer } from '../../apps/Spotify/Spotify';
 
 export const WindowSpace = (props) => {
     let width = window.screen.width;
@@ -13,6 +15,9 @@ export const WindowSpace = (props) => {
             >
             {/* <Browser/> */}
             <FileExplorer/>
+            <ImgViewer/>
+            <PdfViewer/>
+            <SpotifyViewer/>
        </div>
     )
 }

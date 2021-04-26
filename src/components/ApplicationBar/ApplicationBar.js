@@ -10,6 +10,9 @@ export const ApplicationBar = () => {
                 <div className="text-4xl cursor-pointer p-2 mr-auto">
                     <img src='./img/ApplicationBar/spotify.png' width="" className="w-7" alt="Spotify"/>
                 </div>
+                <div className="text-4xl cursor-pointer p-2 mr-auto">
+                    <img src='./img/ApplicationBar/spotify.png' width="" className="w-7" alt="Spotify"/>
+                </div>
             </div>
         </div>
     )

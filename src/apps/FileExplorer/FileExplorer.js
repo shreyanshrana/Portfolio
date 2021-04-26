@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Draggable from 'react-draggable';
-import { TopBar } from '../TopBar/TopBar';
+import { TopBar } from '../../components/TopBar/TopBar';
+import {AppContext} from '../../context/AppContext';
 
 
 
@@ -16,7 +17,9 @@ export const FileExplorer = () => {
     }])
     const [iframURL, setIframeURL] = useState();
     const [showPreviewWidget, setShowPreviewWidget] = useState("none")
-   
+
+    const {setImgURL, setPdfURL, setSpotifyURL} = useContext(AppContext);
+
     const PreviewWidget =(props)=>{
         return(
             <React.Fragment>
@@ -43,11 +46,17 @@ export const FileExplorer = () => {
     const File = (props) => {
         return(
             <div className="w-1/5 inline-block p-2 text-center cursor-pointer hover:bg-gray-200" style={{ borderRadius :"5px" }} onClick={()=>{
-                                                                                                                                                // console.log("click");
-                                                                                                                                                setShowPreviewWidget("block");
-                                                                                                                                                // document.getElementById("PreviewWidget").style.display = "block";
-                                                                                                                                                // console.log(document.getElementById("PreviewWidget").style.display);
-                                                                                                                                                setIframeURL(props.fileURL);
+                                                                                                                                                document.getElementById(props.fileType+"Container").style.display = "block";
+                                                                                                                                                if(props.fileType == "img")
+                                                                                                                                                    setImgURL(props.fileURL);
+                                                                                                                                                if(props.fileType === "pdf")
+                                                                                                                                                    setPdfURL(props.fileURL);
+                                                                                                                                                if(props.fileType === "spotify"){
+                                                                                                                                                    setSpotifyURL(props.fileURL);
+                                                                                                                                                    document.getElementById("s"+props.fileURL.substr(40,22)).style.fontWeight = "bold";
+                                                                                                                                                    document.getElementById("s"+props.fileURL.substr(40,22)).style.backgroundColor = "#8B5CF6";
+                                                                                                                                                    document.querySelectorAll(".spotify-playlist:not(#s" + props.fileURL.substr(40,22) + ")").forEach(button => {button.style.fontWeight = "100"; button.style.backgroundColor = "#4C1D95"; return null;})
+                                                                                                                                                }
                                                                                                                                             }}>
                 <img src={"img/FileExplorer/file-" + props.fileType + ".png"} className="text-center m-auto" alt={props.fileName}/>
                 <p className="text-sm py-1">{props.fileName}</p>
@@ -65,19 +74,19 @@ export const FileExplorer = () => {
         if(dir === "Pictures"){
             return(
                 <React.Fragment>
-                    <File fileName="Fate - UBW" fileType="img" fileURL="https://drive.google.com/file/d/10dLI6KTidxroLB-QI8_OA_K7GfCq73yI/preview?usp=drivesdk"/>
+                    <File fileName="Fate - UBW" fileType="img" fileURL="https://drive.google.com/uc?id=10dLI6KTidxroLB-QI8_OA_K7GfCq73yI"/>
                 </React.Fragment>
             )
         }
         if(dir === "Music"){
             return(
                 <React.Fragment>
-                    <File fileName="Spotify - Poppy" fileType="music" fileURL="https://open.spotify.com/embed/playlist/3AGIYCxTLf33EYmTLI3tgM"/>
-                    <File fileName="Spotify - Animeeeee" fileType="music"/>
-                    <File fileName="Spotify - Latin Luv" fileType="music"/>
-                    <File fileName="Spotify - kPop" fileType="music"/>
-                    <File fileName="Spotify - EDM Timez" fileType="music"/>
-                    <File fileName="Spotify - creme de la creme" fileType="music"/>
+                    <File fileName="Playlist - Poppy" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/3AGIYCxTLf33EYmTLI3tgM"/>
+                    <File fileName="Playlist - Animeeeee" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/3dMmPVKe2qQ3eVMKBZmZiY"/>
+                    <File fileName="Playlist - Latin Luv" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/68IIT4nHtPftskRP6bq7vP"/>
+                    <File fileName="Playlist - kPop" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/6zYcVunMlPPb8Yy172QCCA"/>
+                    <File fileName="Playlist - EDM Timez" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/4MDNuoYAmbklM4FvKSxNty"/>
+                    <File fileName="Playlist - creme de la creme" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/5pvRx25Iw1HLb8TleuKJbO"/>
                 </React.Fragment>
             )
         }
@@ -100,11 +109,11 @@ export const FileExplorer = () => {
                 handle=".handle"
                 grid={[1,1]}
                 bounds="parent">
-                <div id="Container"
+                <div id="fileContainer"
                             // nodeRef={nodeRef}
                             style={browserStyle[0]} 
                             className="absolute bg-red-50 inline-block z-20">
-                        <TopBar title="File Explorer" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle}/>
+                        <TopBar title="File Explorer" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle} frameTitle="file"/>
                         <div className="" style={{ height:"468px" }}>
                             <div className="w-40 float-left bg-gray-400 h-full py-5">
                                 <div className="p-2 px-6 space-x-3 cursor-pointer hover:bg-gray-500" >
