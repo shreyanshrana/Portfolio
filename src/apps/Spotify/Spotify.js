@@ -22,7 +22,7 @@ export const SpotifyViewer = () => {
                             // height : window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 28 + 'px',
                             height : "500px",
                             width : "700px",
-                            display : "block",
+                            display : "none",
                             left:"0",
                             top:"1.75rem",
                             zIndex:"25"

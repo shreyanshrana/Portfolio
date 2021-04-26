@@ -3,6 +3,9 @@ import {  PdfViewer } from '../../apps/PdfViewer/PdfViewer';
 import { FileExplorer } from '../../apps/FileExplorer/FileExplorer';
 import { ImgViewer } from '../../apps/ImgViewer/ImgViewer';
 import { SpotifyViewer } from '../../apps/Spotify/Spotify';
+import { VideoPlayer } from '../../apps/VideoPlayer/VideoPlayer';
+import { Weather } from '../../apps/Weather/Weather';
+import { Calculator } from '../../apps/Calculator/Calculator';
 
 export const WindowSpace = (props) => {
     let width = window.screen.width;
@@ -18,6 +21,9 @@ export const WindowSpace = (props) => {
             <ImgViewer/>
             <PdfViewer/>
             <SpotifyViewer/>
+            <VideoPlayer/>
+            <Calculator/>
+            <Weather/>
        </div>
     )
 }

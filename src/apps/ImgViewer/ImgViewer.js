@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Draggable from 'react-draggable'
 import { TopBar } from '../../components/TopBar/TopBar'
 import {AppContext} from '../../context/AppContext'
@@ -28,7 +28,7 @@ export const ImgViewer = () => {
                         className="absolute bg-red-50 inline-block">
                     <TopBar title="Image Viewer" frameTitle="img"/>
                         <div id="PreviewWidget" className="w-full fixed bg-gray-200" style={{ height: "95%"}}>
-                            <img src={imgURL} className="m-auto" style={{position:"relative", top:"50%", transform:"translate(0,-50%)", height:"95%"}}/>
+                            <img src={imgURL} className="m-auto" style={{position:"relative", top:"50%", transform:"translate(0,-50%)", height:"95%"}} alt="img"/>
                         </div>
                 </div>
         </Draggable>

@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext';
 
 export const PdfViewer = () => {
     const {pdfURL} = useContext(AppContext);
-    console.log(pdfURL);
+    // console.log(pdfURL);
     return (
         <Draggable
                 axis="both"

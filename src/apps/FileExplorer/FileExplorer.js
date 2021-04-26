@@ -15,10 +15,10 @@ export const FileExplorer = () => {
         left:"100px",
         top:"50px",
     }])
-    const [iframURL, setIframeURL] = useState();
+    const [iframURL] = useState();
     const [showPreviewWidget, setShowPreviewWidget] = useState("none")
 
-    const {setImgURL, setPdfURL, setSpotifyURL} = useContext(AppContext);
+    const {setImgURL, setPdfURL, setSpotifyURL, setVideoURL} = useContext(AppContext);
 
     const PreviewWidget =(props)=>{
         return(
@@ -47,7 +47,7 @@ export const FileExplorer = () => {
         return(
             <div className="w-1/5 inline-block p-2 text-center cursor-pointer hover:bg-gray-200" style={{ borderRadius :"5px" }} onClick={()=>{
                                                                                                                                                 document.getElementById(props.fileType+"Container").style.display = "block";
-                                                                                                                                                if(props.fileType == "img")
+                                                                                                                                                if(props.fileType === "img")
                                                                                                                                                     setImgURL(props.fileURL);
                                                                                                                                                 if(props.fileType === "pdf")
                                                                                                                                                     setPdfURL(props.fileURL);
@@ -56,6 +56,12 @@ export const FileExplorer = () => {
                                                                                                                                                     document.getElementById("s"+props.fileURL.substr(40,22)).style.fontWeight = "bold";
                                                                                                                                                     document.getElementById("s"+props.fileURL.substr(40,22)).style.backgroundColor = "#8B5CF6";
                                                                                                                                                     document.querySelectorAll(".spotify-playlist:not(#s" + props.fileURL.substr(40,22) + ")").forEach(button => {button.style.fontWeight = "100"; button.style.backgroundColor = "#4C1D95"; return null;})
+                                                                                                                                                }
+                                                                                                                                                if(props.fileType === "video"){
+                                                                                                                                                    setVideoURL(props.fileURL);
+                                                                                                                                                    // document.getElementById("s"+props.fileURL.substr(40,22)).style.fontWeight = "bold";
+                                                                                                                                                    // document.getElementById("s"+props.fileURL.substr(40,22)).style.backgroundColor = "#8B5CF6";
+                                                                                                                                                    // document.querySelectorAll(".spotify-playlist:not(#s" + props.fileURL.substr(40,22) + ")").forEach(button => {button.style.fontWeight = "100"; button.style.backgroundColor = "#4C1D95"; return null;})
                                                                                                                                                 }
                                                                                                                                             }}>
                 <img src={"img/FileExplorer/file-" + props.fileType + ".png"} className="text-center m-auto" alt={props.fileName}/>
@@ -87,6 +93,13 @@ export const FileExplorer = () => {
                     <File fileName="Playlist - kPop" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/6zYcVunMlPPb8Yy172QCCA"/>
                     <File fileName="Playlist - EDM Timez" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/4MDNuoYAmbklM4FvKSxNty"/>
                     <File fileName="Playlist - creme de la creme" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/5pvRx25Iw1HLb8TleuKJbO"/>
+                </React.Fragment>
+            )
+        }
+        if(dir === "Videos"){
+            return(
+                <React.Fragment>
+                    <File fileName="A Very Gergich Breakfast" fileType="video" fileURL="https://www.youtube.com/embed/GTbJEIXU1Ms"/>
                 </React.Fragment>
             )
         }
