@@ -6,17 +6,20 @@ import { SpotifyViewer } from '../../apps/Spotify/Spotify';
 import { VideoPlayer } from '../../apps/VideoPlayer/VideoPlayer';
 import { Weather } from '../../apps/Weather/Weather';
 import { Calculator } from '../../apps/Calculator/Calculator';
+import { Browser } from '../../apps/Browser/Browser';
+import { Activities } from '../Activities/Activities';
+import { VSCode } from '../../apps/VSCode/VSCode';
 
 export const WindowSpace = (props) => {
     let width = window.screen.width;
+    // let width = document.getElementById("App").style.width;
     // let height = window.screen.height;
-   
     return (
         <div id="WindowSpace" 
             className="absolute h-screen z-0 inline-block pt-7"
             style={{width:(width - 48) + 'px', height:"100vh"}}
             >
-            {/* <Browser/> */}
+            <Browser/>
             <FileExplorer/>
             <ImgViewer/>
             <PdfViewer/>
@@ -24,6 +27,8 @@ export const WindowSpace = (props) => {
             <VideoPlayer/>
             <Calculator/>
             <Weather/>
-       </div>
+            <Activities/>
+            <VSCode/>
+        </div>
     )
 }

@@ -14,7 +14,7 @@ export const Weather = () => {
                         // height : window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 28 + 'px',
                         height : "400px",
                         width : "790px",
-                        display : "block",
+                        display : "none",
                         left:"0",
                         top:"1.75rem",
                         zIndex:"25"

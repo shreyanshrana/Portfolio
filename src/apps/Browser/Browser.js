@@ -9,10 +9,11 @@ export const Browser = (props) => {
     const [browserStyle, setBrowserStyle] = useState([{
         height : "500px",
         width : "700px",
-        display : "block",
+        display : "none",
         borderRadius : "10px",
         left:"100px",
         top:"50px",
+        zIndex:"25"
     }])
     const [iframeHeight, setIframeHeight] = useState("428px");
 

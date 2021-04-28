@@ -10,7 +10,7 @@ export const FileExplorer = () => {
     const [browserStyle, setBrowserStyle] = useState([{
         height : "500px",
         width : "700px",
-        display : "block",
+        display : "none",
         borderRadius : "10px",
         left:"100px",
         top:"50px",

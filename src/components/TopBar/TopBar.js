@@ -15,7 +15,12 @@ export const TopBar = (props) => {
         <div id="TopBarContainer" className="bg-black text-white font-bold text-center px-2 py-1 handle">
             {props.title}
             <div className="float-right text-right space-x-2 text-white cursor-default">
-                <ion-icon name="remove-outline" style={{ color:"white", borderRadius:"50%" }}></ion-icon>
+                <button className="outline-none" onClick={()=>{
+                                                                document.getElementById(props.frameTitle + "Container").style.display = "none";
+                                                                }
+                                                            }>
+                    <ion-icon name="remove-outline" style={{ color:"white", borderRadius:"50%" }}></ion-icon>
+                </button>
                 {
                 (props.showMax === false)
                 ?

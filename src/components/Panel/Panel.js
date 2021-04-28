@@ -7,6 +7,7 @@ export const Panel = () => {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const [showCalendar,setShowCalendar] = useState(false);
+    const [showActivities,setShowActivities] = useState(false);
     const [showPower,setShowPower] = useState(false);
     const [dateStyle, setDateStyle] = useState({cursor:'pointer' })
     const [powerStyle, setPowerStyle] = useState({cursor:'pointer' })
@@ -14,7 +15,20 @@ export const Panel = () => {
     return (
         <div className="absolute z-10 h-7" style={{ width:'100vw' }}>
             <div className='bg-black text-white'>
-                <div className="w-1/4 inline-block px-2">
+                <div className="w-1/4 inline-block px-2 cursor-pointer" 
+                    onClick={()=>{
+                        if(showActivities) 
+                        {
+                            document.getElementById("activitiesContainer").style.display = "none";
+                            setShowActivities(false);
+                        }
+                        else 
+                        {
+                            document.getElementById("activitiesContainer").style.display = "block";
+                            setShowActivities(true);
+                        }
+                    }}
+                    >
                     Activities  
                 </div>
                 <div className="w-1/2 inline-block text-center font-bold" >

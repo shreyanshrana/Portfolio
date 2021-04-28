@@ -8,7 +8,7 @@ import AppContextProvider from './context/AppContext';
 function App() {
   return (
     <AppContextProvider>
-      <div className="App w-screen h-screen" style={{ backgroundImage:'url("../img/bg.png")', backgroundSize:'cover', backgroundPosition:'top'}}>
+      <div id="App" className="App w-screen h-screen" style={{ backgroundImage:'url("../img/bg.png")', backgroundSize:'cover', backgroundPosition:'top'}}>
         <Panel/>
         <ApplicationBar/>
         <WindowSpace/>
