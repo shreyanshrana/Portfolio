@@ -9,6 +9,7 @@ import { Calculator } from '../../apps/Calculator/Calculator';
 import { Browser } from '../../apps/Browser/Browser';
 import { Activities } from '../Activities/Activities';
 import { VSCode } from '../../apps/VSCode/VSCode';
+import { Terminal } from '../../apps/Terminal/Terminal';
 
 export const WindowSpace = (props) => {
     let width = window.screen.width;
@@ -29,6 +30,7 @@ export const WindowSpace = (props) => {
             <Weather/>
             <Activities/>
             <VSCode/>
+            <Terminal/>
         </div>
     )
 }
