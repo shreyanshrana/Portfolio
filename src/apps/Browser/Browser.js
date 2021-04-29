@@ -45,6 +45,28 @@ export const Browser = (props) => {
                                 </button>
                             </div>
                         </div>
+                        <div className="w-full bg-gray-700 space-x-2 grid grid-cols-4">
+                            <div className = "cursor-pointer text-center text-white inline-block text-sm">
+                                <a href="https://github.com/shreyanshrana/" target="_blank">
+                                    <ion-icon name="logo-github"></ion-icon>Github
+                                </a>
+                            </div>
+                            <div className = "cursor-pointer text-center text-white inline-block text-sm">
+                                <a href="https://dribbble.com/shreyanshrana" target="_blank">
+                                    <ion-icon name="logo-dribbble"></ion-icon>Dribbble
+                                </a>
+                            </div>
+                            <div className = "cursor-pointer text-center text-white inline-block text-sm">
+                                <a href="https://www.instagram.com/shreyanshrana/" target="_blank">
+                                    <ion-icon name="logo-instagram"></ion-icon>Instagram
+                                </a>
+                            </div>
+                            <div className = "cursor-pointer text-center text-white inline-block text-sm">
+                                <a href="https://www.tvtime.com/en/user/14836318/profile" target="_blank">
+                                    <ion-icon name="tv-outline"></ion-icon>TV Time
+                                </a>
+                            </div>
+                        </div>
                         <iframe src={gotoURL} title="Browser" width="100%" height={iframeHeight} frameBorder="0" id='browserIframe' onClick={e=>{console.log(e)}}>
                         </iframe>
                     </div>

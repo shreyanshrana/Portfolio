@@ -40,7 +40,7 @@ export const TopBar = (props) => {
                             // document.getElementById("TopBarContainer").style.borderTopLeftRadius = "0";
                             // document.getElementById("TopBarContainer").style.borderTopRightRadius = "0";
                             if(props.setIframeHeight !== undefined)
-                                document.getElementById("browserIframe").style.height = window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 100 + 'px';
+                                document.getElementById("browserIframe").style.height = window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 120 + 'px';
                             setWindowState("maximized");
                         }
                         if(windowState === "maximized"){

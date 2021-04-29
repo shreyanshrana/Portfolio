@@ -1,0 +1,49 @@
+{
+    "Desktop" : {
+
+    },
+    "Documents" : {
+        "Resume" : {
+            "fileType":"pdf",
+            "fileURL":"https://drive.google.com/file/d/1DiLSp7_PgwuLLuJ-EhtH7rjjAuS6u5f2/preview?usp:drivesdk"
+        }
+    },
+    "Pictures" : {
+        "Fate - UBW":{
+            "fileType":"img",
+            "fileURL":"https://drive.google.com/uc?id=10dLI6KTidxroLB-QI8_OA_K7GfCq73yI"
+        } 
+    },
+    "Music":{
+        "Playlist - Poppy":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/3AGIYCxTLf33EYmTLI3tgM"
+        },
+        "Playlist - Animeeeee":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/3dMmPVKe2qQ3eVMKBZmZiY"
+        },
+        "Playlist - Latin Luv":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/68IIT4nHtPftskRP6bq7vP"
+        },
+        "Playlist - kPop":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/6zYcVunMlPPb8Yy172QCCA"
+        },
+        "Playlist - EDM Timez":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/4MDNuoYAmbklM4FvKSxNty"
+        },
+        "Playlist - creme de la creme":{
+            "fileType":"spotify",
+            "fileURL":"https://open.spotify.com/embed/playlist/5pvRx25Iw1HLb8TleuKJbO"
+        }
+    },
+    "Videos" : {
+        "A Very Gergich Breakfast" :{
+            "fileType":"video",
+            "fileURL":"https://www.youtube.com/embed/GTbJEIXU1Ms"
+        }
+    }
+}

@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 import { TopBar } from '../../components/TopBar/TopBar';
 import {AppContext} from '../../context/AppContext';
 
+import DirectortyPath from "../DirectoryPath.json";
 
 
 export const FileExplorer = () => {
@@ -70,48 +71,63 @@ export const FileExplorer = () => {
     )
     }
     const renderFolders = () =>{
+        let retObj = [];
+        const renderFileList = (folderName) => {
+            for(let file in DirectortyPath[folderName]){
+                // console.log(DirectortyPath[folderName][file]);
+                retObj.push(<File fileName={file} fileType={DirectortyPath[folderName][file]['fileType']} fileURL={DirectortyPath[folderName][file]['fileURL']}/>) 
+            }
+        return retObj;
+        }
+
+        const renderFolderList = () => {
+            let retObj = [];
+            for(let file in DirectortyPath){
+                // console.log(DirectortyPath[folderName][file]);
+                retObj.push(<Folder folderName={file}/>) 
+            }
+        return retObj;
+        }
         if(dir === "Documents"){
             return(
                 <React.Fragment>
-                    <File fileName="Resume" fileType="pdf" fileURL="https://drive.google.com/file/d/1DiLSp7_PgwuLLuJ-EhtH7rjjAuS6u5f2/preview?usp=drivesdk"/>
+                    {
+                        renderFileList("Documents")
+                    }
                 </React.Fragment>
             )
         }
         if(dir === "Pictures"){
             return(
                 <React.Fragment>
-                    <File fileName="Fate - UBW" fileType="img" fileURL="https://drive.google.com/uc?id=10dLI6KTidxroLB-QI8_OA_K7GfCq73yI"/>
+                    {
+                        renderFileList("Pictures")
+                    }
                 </React.Fragment>
             )
         }
         if(dir === "Music"){
             return(
                 <React.Fragment>
-                    <File fileName="Playlist - Poppy" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/3AGIYCxTLf33EYmTLI3tgM"/>
-                    <File fileName="Playlist - Animeeeee" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/3dMmPVKe2qQ3eVMKBZmZiY"/>
-                    <File fileName="Playlist - Latin Luv" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/68IIT4nHtPftskRP6bq7vP"/>
-                    <File fileName="Playlist - kPop" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/6zYcVunMlPPb8Yy172QCCA"/>
-                    <File fileName="Playlist - EDM Timez" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/4MDNuoYAmbklM4FvKSxNty"/>
-                    <File fileName="Playlist - creme de la creme" fileType="spotify" fileURL="https://open.spotify.com/embed/playlist/5pvRx25Iw1HLb8TleuKJbO"/>
+                    {
+                        renderFileList("Music")
+                    }
                 </React.Fragment>
             )
         }
         if(dir === "Videos"){
             return(
                 <React.Fragment>
-                    <File fileName="A Very Gergich Breakfast" fileType="video" fileURL="https://www.youtube.com/embed/GTbJEIXU1Ms"/>
+                    {
+                        renderFileList("Videos")
+                    }
                 </React.Fragment>
             )
         }
         else
             return(
                 <React.Fragment>
-                    <Folder folderName="Desktop"/>
-                    <Folder folderName="Documents"/>
-                    <Folder folderName="Downloads"/>
-                    <Folder folderName="Pictures"/>
-                    <Folder folderName="Music"/>
-                    <Folder folderName="Videos"/>
+                    {renderFolderList()}
                 </React.Fragment>
             )
     }
@@ -129,11 +145,7 @@ export const FileExplorer = () => {
                         <TopBar title="File Explorer" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle} frameTitle="file"/>
                         <div className="" style={{ height:"468px" }}>
                             <div className="w-40 float-left bg-gray-400 h-full py-5">
-                                <div className="p-2 px-6 space-x-3 cursor-pointer hover:bg-gray-500" >
-                                    <ion-icon name="time-outline"></ion-icon>
-                                    <p className="inline-block">Recents</p>
-                                </div>
-                                <div className="p-2 px-6 space-x-3 cursor-pointer hover:bg-gray-500" onClick={()=>{setDir("Home")}}>
+                                <div className="p-2 px-6 space-x-3 cursor-pointer bg-gray-500" onClick={()=>{setDir("Home")}}>
                                     <ion-icon name="home"></ion-icon>
                                     <p className="inline-block">Home</p>
                                 </div>

@@ -20,6 +20,11 @@ export const ApplicationBar = () => {
                     <img src='./img/ApplicationBar/vscode.png' width="" className="w-7" alt="VS Code"/>
                 </div>
                 <div className="text-4xl cursor-pointer p-2 mr-auto"
+                    onClick={()=>document.getElementById("terminalContainer").style.display = "block"}
+                    >
+                    <img src='./img/ApplicationBar/terminal.png' width="" className="w-7" alt="Terminal"/>
+                </div>
+                <div className="text-4xl cursor-pointer p-2 mr-auto"
                     onClick={()=>document.getElementById("fileContainer").style.display = "block"}
                     >
                     <img src='./img/ApplicationBar/filemanager.png' width="" className="w-7" alt="File Manager"/>
