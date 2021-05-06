@@ -7,7 +7,7 @@ export const ApplicationBar = () => {
                 <div className="text-4xl cursor-pointer p-2 mr-auto"
                     onClick={()=>document.getElementById("browserContainer").style.display = "block"}
                     >
-                    <img src='./img/ApplicationBar/firefox.png' width="" className="w-7" alt="Firefox"/>
+                    <img src='img/ApplicationBar/firefox.png' width="" className="w-7" alt="Firefox"/>
                 </div>
                 <div className="text-4xl cursor-pointer p-2 mr-auto"
                     onClick={()=>document.getElementById("spotifyContainer").style.display = "block"}
