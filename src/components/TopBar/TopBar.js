@@ -10,13 +10,12 @@ export const TopBar = (props) => {
         left:"0",
         top:"1.75rem",
     });
-    console.log(props.showMax)
     return (
-        <div id="TopBarContainer" className="bg-black text-white font-bold text-center px-2 py-1 handle">
+        <div id="TopBarContainer" className="text-white font-bold text-center px-2 py-1 handle h-8">
             {props.title}
             <div className="float-right text-right space-x-2 text-white cursor-default">
-                <button className="outline-none" onClick={()=>{
-                                                                document.getElementById(props.frameTitle + "Container").style.display = "none";
+                <button onClick={()=>{
+                                                                document.getElementsByClassName(props.title)[0].style.display = "none";
                                                                 }
                                                             }>
                     <ion-icon name="remove-outline" style={{ color:"white", borderRadius:"50%" }}></ion-icon>
@@ -29,30 +28,23 @@ export const TopBar = (props) => {
                 )
                 :
                 (
-                    <button className="outline-none" onClick={()=>{
-                        if(windowState === "minimized"){
-                            document.getElementById(props.frameTitle + "Container").style.height = window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 28 + 'px';
-                            document.getElementById(props.frameTitle + "Container").style.width = window.screen.width - 48 + 'px';;
-                            document.getElementById(props.frameTitle + "Container").style.left = "0px";
-                            document.getElementById(props.frameTitle + "Container").style.top = "1.75rem";
-                            document.getElementById(props.frameTitle + "Container").style.borderRadius = "0";
-                            document.getElementById(props.frameTitle + "Container").style.transform = "translate(0,0)";
-                            // document.getElementById("TopBarContainer").style.borderTopLeftRadius = "0";
-                            // document.getElementById("TopBarContainer").style.borderTopRightRadius = "0";
+                    <button onClick={()=>{
+                        if(windowState === "minimized"){//on clicking maximize
+                            document.getElementsByClassName(props.title)[0].style.height = "100%";
+                            document.getElementsByClassName(props.title)[0].style.width = "100%";
+                            document.getElementsByClassName(props.title)[0].style.left = "0px";
+                            document.getElementsByClassName(props.title)[0].style.top = "0";
+                            document.getElementsByClassName(props.title)[0].style.borderRadius = "0";
+                            document.getElementsByClassName(props.title)[0].style.transform = "translate(0,0)";
                             if(props.setIframeHeight !== undefined)
                                 document.getElementById("browserIframe").style.height = window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 120 + 'px';
                             setWindowState("maximized");
                         }
-                        if(windowState === "maximized"){
-                            document.getElementById(props.frameTitle + "Container").style.height = defaultWindowState.height;
-                            document.getElementById(props.frameTitle + "Container").style.width = defaultWindowState.width;
-                            document.getElementById(props.frameTitle + "Container").style.left = defaultWindowState.left;
-                            document.getElementById(props.frameTitle + "Container").style.top = defaultWindowState.top;
-                            // document.getElementById(props.frameTitle + "Container").style.borderRadius = defaultWindowState.borderRadius;
-                            // document.getElementById("TopBarContainer").style.borderTopLeftRadius = "10px";
-                            // document.getElementById("TopBarContainer").style.borderTopRightRadius = "10px";
-                            if(props.setIframeHeight !== undefined)
-                                document.getElementById("browserIframe").style.height = "428px";
+                        if(windowState === "maximized"){ //on clicking minimize
+                            document.getElementsByClassName(props.title)[0].style = "";
+                            console.log(document.getElementsByClassName(props.title)[0].style);
+                            document.getElementsByClassName(props.title)[0].style.display = "block";
+                            document.getElementById("TopBarContainer").style = "";
                             setWindowState("minimized");
                         }
                         
@@ -63,8 +55,8 @@ export const TopBar = (props) => {
                 )
             }
                 
-                <button className="outline-none" onClick={()=>{
-                                                                document.getElementById(props.frameTitle + "Container").style.display = "none";
+                <button onClick={()=>{
+                                                                document.getElementsByClassName(props.title)[0].style.display = "none";
                                                                 }
                                                             }>
                     <ion-icon name="close-outline" style={{ color:"white", backgroundColor:"#E95420", borderRadius:"50%" }}></ion-icon>

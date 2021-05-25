@@ -8,6 +8,7 @@
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
+  box-sizing: border-box;
 }
 
 *::-webkit-scrollbar-track {
@@ -22,4 +23,11 @@
 
 *::-webkit-scrollbar-thumb {
   background-color: #2c2a2a;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
 }

@@ -11,26 +11,28 @@ import { Activities } from '../Activities/Activities';
 import { VSCode } from '../../apps/VSCode/VSCode';
 import { Terminal } from '../../apps/Terminal/Terminal';
 
+import AppContainer from '../AppContainer/AppContainer';
+
 export const WindowSpace = (props) => {
-    let width = window.screen.width;
-    // let width = document.getElementById("App").style.width;
-    // let height = window.screen.height;
+
     return (
         <div id="WindowSpace" 
-            className="absolute h-screen z-0 inline-block pt-7"
-            style={{width:(width - 48) + 'px', height:"100vh"}}
+            className="relative h-full z-0 inline-block float-right"
+            style={{width:"calc(100% - 3rem)", backgroundImage:'url("./img/bg.png")', backgroundSize:'cover', backgroundPosition:'top'}} 
             >
-            <Browser/>
+                {/* <AppContainer/> */}
+            {/* <Browser/>
             <FileExplorer/>
             <ImgViewer/>
             <PdfViewer/>
-            <SpotifyViewer/>
             <VideoPlayer/>
             <Calculator/>
             <Weather/>
             <Activities/>
+            */}
+            <SpotifyViewer/>
             <VSCode/>
-            <Terminal/>
+            <Terminal/> 
         </div>
     )
 }

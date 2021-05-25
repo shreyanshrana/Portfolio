@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Draggable from 'react-draggable'
+import AppContainer from '../../components/AppContainer/AppContainer'
 import { TopBar } from '../../components/TopBar/TopBar'
 import DirectoryPath from "../DirectoryPath.json"
 export const Terminal = () => {
@@ -102,35 +103,20 @@ export const Terminal = () => {
                     }
                     break;
                 default:
-                    a.innerHTML += "Invalid command, please try again :)"
+                    a.innerHTML += "Invalid command, available commands : clear, ls, echo, cd :)"
             }
         }
     document.getElementById("terminalInput").focus();
         // document.getElementById("terminalInput").scrollTo = document.getElementById("terminalInput").scrollHeight;
 }
+
+let a = (
+    <div id="" className="w-full bg-black h-full text-green-600 font-bold z-50" onClick={()=>{document.getElementById("terminalInput").focus()}}>
+        <label id="terminalLabel">shreyansh@potato-pc <p className="text-white inline-block">{displayCurrDir}</p> > </label> 
+        <input id="terminalInput" className="bg-black mx-1 text-white p-1 focus:outline-none" placeholder="|" onKeyUp={(e)=>onEnter(e)} onChange={(e)=>{setCmd(e.target.value)}}/>
+    </div>
+)
     return (
-        <Draggable
-        axis="both"
-        handle=".handle"
-        grid={[1,1]}
-        bounds="parent">
-        <div id="terminalContainer"
-                style={{ 
-                    // height : window.getComputedStyle(document.getElementById("WindowSpace")).height.substr(0,3) - 28 + 'px',
-                    height : "500px",
-                    width : "700px",
-                    display : "none",
-                    left:"0",
-                    top:"1.75rem",
-                    zIndex:"25"
-                }} 
-                className="absolute bg-white inline-block">
-            <TopBar title="Terminal" frameTitle="terminal"/>
-                <div id="terminalWidget" className=" overflow-auto w-full fixed bg-black text-green-600 font-bold z-50 top-8 left-0 p-1" style={{ height:"95%" }} onClick={()=>{document.getElementById("terminalInput").focus()}}>
-                    <label id="terminalLabel">shreyansh@potato-pc <p className="text-white inline-block">{displayCurrDir}</p> > </label> 
-                    <input id="terminalInput" className="bg-black mx-1 text-white p-1 focus:outline-none" placeholder="|" onKeyUp={(e)=>onEnter(e)} onChange={(e)=>{setCmd(e.target.value)}}/>
-                </div>
-        </div>
-</Draggable>
+        <AppContainer app={a} appName="Terminal"/>
     )
 }

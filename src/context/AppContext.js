@@ -9,9 +9,10 @@ const AppContextProvider = (props) => {
     const [pdfURL, setPdfURL] = useState("");
     const [videoURL, setVideoURL] = useState("");
     const [spotifyURL, setSpotifyURL] = useState("https://open.spotify.com/embed/playlist/3AGIYCxTLf33EYmTLI3tgM");
+    const [VSURL, setVSURL] = useState("");
     return (
         // <AppContext.Provider value={{ ImgViewerContext, setImgViewerContext }}>
-        <AppContext.Provider value={{ displayImgViewer, setDisplayImgViewer, imgURL, setImgURL, pdfURL, setPdfURL, spotifyURL, setSpotifyURL, videoURL, setVideoURL }}>
+        <AppContext.Provider value={{ displayImgViewer, setDisplayImgViewer, imgURL, setImgURL, pdfURL, setPdfURL, spotifyURL, setSpotifyURL, videoURL, setVideoURL, VSURL, setVSURL }}>
             {props.children}
         </AppContext.Provider>
     );

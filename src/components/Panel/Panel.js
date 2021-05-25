@@ -13,7 +13,7 @@ export const Panel = () => {
     const [powerStyle, setPowerStyle] = useState({cursor:'pointer' })
 
     return (
-        <div className="absolute z-10 h-7" style={{ width:'100vw' }}>
+        <div className="fixed z-10" style={{ width:'100vw' }}>
             <div className='bg-black text-white'>
                 <div className="w-1/4 inline-block px-2 cursor-pointer" 
                     onClick={()=>{

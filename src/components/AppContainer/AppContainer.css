@@ -1,0 +1,34 @@
+#AppContainer {
+    float: left;
+    display: none;
+    width: 50rem;
+    height: 30rem;
+    left: 20%;
+    top: 10%;
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.05s all;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#Application {
+    width: 100%;
+    height: calc(100% - 2rem);
+    background: whitesmoke;
+}
+
+#TopBarContainer {
+    background: hsl(0, 2%, 11%);
+}
+
+#TopBarContainer button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 500px) {
+    #AppContainer {
+        width: 100%;
+    }
+}
