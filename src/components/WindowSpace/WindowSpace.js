@@ -12,6 +12,7 @@ import { VSCode } from '../../apps/VSCode/VSCode';
 import { Terminal } from '../../apps/Terminal/Terminal';
 
 import { AppContext } from '../../context/AppContext';
+import Settings from '../../apps/Settings/Settings';
 
 export const WindowSpace = (props) => {
 
@@ -31,6 +32,7 @@ export const WindowSpace = (props) => {
             <VideoPlayer/>
             <Calculator/>
             <Weather/>
+            <Settings/>
             <Activities/>
         </div>
     )

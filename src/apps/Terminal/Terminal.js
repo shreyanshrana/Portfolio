@@ -108,7 +108,7 @@ export const Terminal = () => {
 }
 
 let a = (
-    <div id="" className="w-full bg-black h-full text-green-600 font-bold z-50" onClick={()=>{document.getElementById("terminalInput").focus()}}>
+    <div id="" className="w-full bg-black h-full text-green-600 font-bold z-50 p-2" onClick={()=>{document.getElementById("terminalInput").focus()}}>
         <label id="terminalLabel">shreyansh@potato-pc <p className="text-white inline-block">{displayCurrDir}</p> > </label> 
         <input id="terminalInput" className="bg-black mx-1 text-white p-1 focus:outline-none" placeholder="|" onKeyUp={(e)=>onEnter(e)} onChange={(e)=>{setCmd(e.target.value)}}/>
     </div>
