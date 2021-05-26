@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
-import Draggable from 'react-draggable';
-import { TopBar } from '../../components/TopBar/TopBar';
+import React, { useContext, useState } from 'react';
+import AppContainer from '../../components/AppContainer/AppContainer';
 import {AppContext} from '../../context/AppContext';
 
 import DirectortyPath from "../DirectoryPath.json";
@@ -8,14 +7,6 @@ import DirectortyPath from "../DirectoryPath.json";
 
 export const FileExplorer = () => {
     const [dir, setDir] = useState("Home");
-    const [browserStyle, setBrowserStyle] = useState([{
-        height : "500px",
-        width : "700px",
-        display : "none",
-        borderRadius : "10px",
-        left:"100px",
-        top:"50px",
-    }])
     const [iframURL] = useState();
     const [showPreviewWidget, setShowPreviewWidget] = useState("none")
 
@@ -37,7 +28,7 @@ export const FileExplorer = () => {
 
     const Folder = (props)=>{
         return(
-                <div className="w-1/5 inline-block p-2 z-10 text-center cursor-pointer hover:bg-gray-200" style={{ borderRadius :"5px" }} onClick={()=>{setDir(props.folderName)}}>
+                <div className="w-1/5 inline-block p-2 z-10 text-center cursor-pointer hover:bg-gray-200 hover:text-black " style={{ borderRadius :"5px" }} onClick={()=>{setDir(props.folderName)}}>
                     <img src={"img/FileExplorer/folder-" + props.folderName + ".png"} className="text-center m-auto" alt={props.folderName}/>
                     <p className="text-sm py-1">{props.folderName}</p>
                 </div>
@@ -46,8 +37,8 @@ export const FileExplorer = () => {
 
     const File = (props) => {
         return(
-            <div className="w-1/5 inline-block p-2 text-center cursor-pointer hover:bg-gray-200" style={{ borderRadius :"5px" }} onClick={()=>{
-                                                                                                                                                document.getElementById(props.fileType+"Container").style.display = "block";
+            <div className="w-1/5 text-white inline-block p-2 text-center cursor-pointer hover:bg-gray-200 hover:text-black" style={{ borderRadius :"5px", whiteSpace: "pre-line"}} onClick={()=>{
+                                                                                                                                                document.getElementsByClassName(props.appName)[0].style.display = "block";
                                                                                                                                                 if(props.fileType === "img")
                                                                                                                                                     setImgURL(props.fileURL);
                                                                                                                                                 if(props.fileType === "pdf")
@@ -75,7 +66,7 @@ export const FileExplorer = () => {
         const renderFileList = (folderName) => {
             for(let file in DirectortyPath[folderName]){
                 // console.log(DirectortyPath[folderName][file]);
-                retObj.push(<File fileName={file} fileType={DirectortyPath[folderName][file]['fileType']} fileURL={DirectortyPath[folderName][file]['fileURL']}/>) 
+                retObj.push(<File fileName={file} appName={DirectortyPath[folderName][file]['appName']} fileType={DirectortyPath[folderName][file]['fileType']} fileURL={DirectortyPath[folderName][file]['fileURL']}/>) 
             }
         return retObj;
         }
@@ -88,77 +79,45 @@ export const FileExplorer = () => {
             }
         return retObj;
         }
-        if(dir === "Documents"){
+        if(dir === "Home"){
             return(
                 <React.Fragment>
                     {
-                        renderFileList("Documents")
+                        renderFolderList()
                     }
                 </React.Fragment>
             )
         }
-        if(dir === "Pictures"){
+        else{
             return(
                 <React.Fragment>
                     {
-                        renderFileList("Pictures")
+                        renderFileList(dir)
                     }
                 </React.Fragment>
             )
         }
-        if(dir === "Music"){
-            return(
-                <React.Fragment>
-                    {
-                        renderFileList("Music")
-                    }
-                </React.Fragment>
-            )
-        }
-        if(dir === "Videos"){
-            return(
-                <React.Fragment>
-                    {
-                        renderFileList("Videos")
-                    }
-                </React.Fragment>
-            )
-        }
-        else
-            return(
-                <React.Fragment>
-                    {renderFolderList()}
-                </React.Fragment>
-            )
     }
+
+    let a = (
+        <React.Fragment>
+            <div className="w-40 float-left h-full py-5" style={{ background:"var(--test)" }}>
+                <div className="p-2 px-6 space-x-3 cursor-pointer bg-gray-500" onClick={()=>{setDir("Home")}}>
+                    <ion-icon name="home"></ion-icon>
+                    <p className="inline-block">Home</p>
+                </div>
+            </div>
+            <div className="inline-block p-5 bg-black h-full text-white" style={{ width:"calc(100% - 10rem)" }}>
+                {
+                    renderFolders()
+                }
+                
+            </div>
+        </React.Fragment>
+    )
     return (
         <React.Fragment>
-            <Draggable
-                axis="both"
-                handle=".handle"
-                grid={[1,1]}
-                bounds="parent">
-                <div id="fileContainer"
-                            // nodeRef={nodeRef}
-                            style={browserStyle[0]} 
-                            className="absolute bg-red-50 inline-block z-20">
-                        <TopBar title="File Explorer" setBrowserStyle={setBrowserStyle} browserStyle={browserStyle} frameTitle="file"/>
-                        <div className="" style={{ height:"468px" }}>
-                            <div className="w-40 float-left bg-gray-400 h-full py-5">
-                                <div className="p-2 px-6 space-x-3 cursor-pointer bg-gray-500" onClick={()=>{setDir("Home")}}>
-                                    <ion-icon name="home"></ion-icon>
-                                    <p className="inline-block">Home</p>
-                                </div>
-                            </div>
-                            <div className="w-3/4 inline-block p-5">
-                                {
-                                    renderFolders()
-                                }
-                                
-                            </div>
-                        </div>
-                    </div>
-            </Draggable>
+            <AppContainer app={a} appName="File Explorer"/>
             <PreviewWidget link="" />
         </React.Fragment>
     )

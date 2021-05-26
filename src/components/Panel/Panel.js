@@ -7,37 +7,20 @@ export const Panel = () => {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const [showCalendar,setShowCalendar] = useState(false);
-    const [showActivities,setShowActivities] = useState(false);
     const [showPower,setShowPower] = useState(false);
     const [dateStyle, setDateStyle] = useState({cursor:'pointer' })
     const [powerStyle, setPowerStyle] = useState({cursor:'pointer' })
 
     return (
-        <div className="fixed z-10" style={{ width:'100vw' }}>
+        <div className="fixed z-10 w-full">
             <div className='bg-black text-white'>
-                <div className="w-1/4 inline-block px-2 cursor-pointer" 
-                    onClick={()=>{
-                        if(showActivities) 
-                        {
-                            document.getElementById("activitiesContainer").style.display = "none";
-                            setShowActivities(false);
-                        }
-                        else 
-                        {
-                            document.getElementById("activitiesContainer").style.display = "block";
-                            setShowActivities(true);
-                        }
-                    }}
-                    >
-                    Activities  
-                </div>
-                <div className="w-1/2 inline-block text-center font-bold" >
+                <div className="inline-block text-center font-bold" style={{ width:"calc(100% - 8rem)" }} >
                     <div className="inline-block border-black border-2" 
                     onClick={
                             ()=>{
                                     setShowPower(false); 
                                     setShowCalendar(!showCalendar); 
-                                     setPowerStyle({ cursor:'pointer' });
+                                    setPowerStyle({ cursor:'pointer' });
                                     (!showCalendar) ? setDateStyle({ borderBottom:"2px solid #e95420", cursor:'pointer' }) : setDateStyle({ cursor:'pointer' })
                                 }
                             } 
@@ -47,8 +30,8 @@ export const Panel = () => {
                         }
                     </div>
                 </div>
-                <div className="w-1/4 inline-block text-right px-2" >
-                    <div className=" inline-block space-x-4 " 
+                <div className="w-32 inline-block text-right px-2" >
+                    <div className="inline-block space-x-4 " 
                     onClick={
                         ()=>{
                                 setShowPower(!showPower); 

@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import Draggable from 'react-draggable'
 import AppContainer from '../../components/AppContainer/AppContainer'
-import { TopBar } from '../../components/TopBar/TopBar'
 import DirectoryPath from "../DirectoryPath.json"
 export const Terminal = () => {
     
@@ -12,8 +10,7 @@ export const Terminal = () => {
     const onEnter = (e) => {
         let a = document.createElement("div")
         a.classList.add("terminalOutput")
-        console.log(e.key);
-        // a.innerHTML = "hello";
+        
         if(e.key === "ArrowUp"){
             document.getElementById("terminalInput").value = cmd;
         }

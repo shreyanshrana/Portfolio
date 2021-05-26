@@ -2,14 +2,7 @@ import React, { useState } from 'react'
 
 export const TopBar = (props) => {
     const [windowState, setWindowState] = useState("minimized");
-    const [defaultWindowState] = useState({
-        height : "500px",
-        width : "700px",
-        display : "block",
-        borderRadius : "10px",
-        left:"0",
-        top:"1.75rem",
-    });
+    
     return (
         <div id="TopBarContainer" className="text-white font-bold text-center px-2 py-1 handle h-8">
             {props.title}

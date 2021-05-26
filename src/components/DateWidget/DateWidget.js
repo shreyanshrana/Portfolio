@@ -11,18 +11,20 @@ export const DateWidget = (props) => {
     let displayBool = (props.show) ? 'block' : 'none';
     return (
         <div style={{ display: displayBool }}>
-            <div className="text-center p-0 m-0 h-3" style={{ color:'#E2E0DD' }}>
+            <div className="text-center p-0 m-0 h-3" style={{ color:'#E2E0DD', width:"calc(100% - 8rem)" }}>
                 <ion-icon name="caret-up-outline" ></ion-icon>
             </div>
-            <div className="w-1/4 m-auto px-3 py-4" style={{ background:'#E2E0DD', borderRadius:'5px'}}>
-                <div className="text-sm">
-                    {days[date.getDay()]}
-                </div>
-                <div className="text-2xl">
-                    {months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear()}
-                </div>
-                <div className="w-11/12 m-auto my-3" style={{ borderRadius:'10px' }}>
-                    <Calendar value={date} onChange={setDate} className="calendarWidget m-auto"/>
+            <div style={{ width:"calc(100% - 8rem)" }}>
+                <div className="w-4/12 m-auto px-3 py-4" style={{ background:'#E2E0DD', borderRadius:'5px'}}>
+                    <div className="text-sm">
+                        {days[date.getDay()]}
+                    </div>
+                    <div className="text-2xl">
+                        {months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear()}
+                    </div>
+                    <div className="w-11/12 m-auto my-3" style={{ borderRadius:'10px' }}>
+                        <Calendar value={date} onChange={setDate} className="calendarWidget m-auto"/>
+                    </div>
                 </div>
             </div>
         </div>

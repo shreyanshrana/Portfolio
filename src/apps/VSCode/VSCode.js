@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Draggable from 'react-draggable'
+import React, { useContext } from 'react'
 import AppContainer from '../../components/AppContainer/AppContainer'
-import { TopBar } from '../../components/TopBar/TopBar'
 import { AppContext } from '../../context/AppContext'
 
 export const VSCode = () => {

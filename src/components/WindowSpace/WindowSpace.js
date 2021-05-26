@@ -1,4 +1,4 @@
-import React, {  } from 'react'
+import React, { useContext } from 'react'
 import {  PdfViewer } from '../../apps/PdfViewer/PdfViewer';
 import { FileExplorer } from '../../apps/FileExplorer/FileExplorer';
 import { ImgViewer } from '../../apps/ImgViewer/ImgViewer';
@@ -11,28 +11,27 @@ import { Activities } from '../Activities/Activities';
 import { VSCode } from '../../apps/VSCode/VSCode';
 import { Terminal } from '../../apps/Terminal/Terminal';
 
-import AppContainer from '../AppContainer/AppContainer';
+import { AppContext } from '../../context/AppContext';
 
 export const WindowSpace = (props) => {
 
+    const {bgURL} = useContext(AppContext);
     return (
         <div id="WindowSpace" 
             className="relative h-full z-0 inline-block float-right"
-            style={{width:"calc(100% - 3rem)", backgroundImage:'url("./img/bg.png")', backgroundSize:'cover', backgroundPosition:'top'}} 
+            style={{width:"calc(100% - 3rem)", backgroundImage:'url(' + bgURL + ')', backgroundSize:'cover', backgroundPosition:'top'}} 
             >
-                {/* <AppContainer/> */}
-            {/* <Browser/>
+            <Browser/>
+            <SpotifyViewer/>
+            <VSCode/>
+            <Terminal/>
             <FileExplorer/>
-            <ImgViewer/>
             <PdfViewer/>
+            <ImgViewer/>
             <VideoPlayer/>
             <Calculator/>
             <Weather/>
             <Activities/>
-            */}
-            <SpotifyViewer/>
-            <VSCode/>
-            <Terminal/> 
         </div>
     )
 }
