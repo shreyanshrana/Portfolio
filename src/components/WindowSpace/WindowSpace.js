@@ -16,12 +16,19 @@ import Settings from '../../apps/Settings/Settings';
 
 export const WindowSpace = (props) => {
 
-    const {bgURL} = useContext(AppContext);
+    const {bgURL, setPdfURL} = useContext(AppContext);
     return (
         <div id="WindowSpace" 
             className="relative h-full z-0 inline-block float-right"
             style={{width:"calc(100% - 3rem)", backgroundImage:'url(' + bgURL + ')', backgroundSize:'cover', backgroundPosition:'top'}} 
             >
+            <div className="w-20 float-right text-black inline-block p-2 text-center cursor-pointer hover:bg-gray-500 hover:text-white" style={{ borderRadius :"5px", whiteSpace: "pre-line", margin:"10px"}} onClick={()=>{
+                                                                                                                                                setPdfURL("https://drive.google.com/file/d/1hckK8ClYqnMZRnkZ1ifRqKKob2Gsk14M/preview?usp:drivesdk");
+                                                                                                                                                document.getElementsByClassName("Document Viewer")[0].style.display = "block";
+                                                                                                                                            }}>
+                <img src={"img/FileExplorer/file-pdf.png"} className="text-center m-auto" alt="Resume"/>
+                <p className="text-sm py-1">Resume</p>
+            </div>
             <Browser/>
             <SpotifyViewer/>
             <VSCode/>

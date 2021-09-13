@@ -26,14 +26,14 @@ export const ApplicationBar = () => {
             name:"File Explorer",
             imgurl:"./img/ApplicationBar/filemanager.png"
         },
-        {
-            name:"Calculator",
-            imgurl:"./img/ApplicationBar/calculator.png"
-        },
-        {
-            name:"Settings",
-            imgurl:"./img/ApplicationBar/settings.png"
-        },
+        // {
+        //     name:"Calculator",
+        //     imgurl:"./img/ApplicationBar/calculator.png"
+        // },
+        // {
+        //     name:"Settings",
+        //     imgurl:"./img/ApplicationBar/settings.png"
+        // },
     ]
     return (
         <div className="bg-black text-center w-12 inline-block h-full" >

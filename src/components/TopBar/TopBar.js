@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 export const TopBar = (props) => {
     const [windowState, setWindowState] = useState("minimized");
-    
     return (
         <div id="TopBarContainer" className="text-white font-bold text-center px-2 py-1 handle h-8">
             {props.title}
